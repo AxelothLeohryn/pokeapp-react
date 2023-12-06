@@ -32,7 +32,7 @@ const SearchComponent = () => {
   };
   const handleSearchInput = (event) => {
     event.preventDefault();
-    const newSearchInput = event.target.value;
+    const newSearchInput = event.target.value.toLowerCase();
     setSearchInput(newSearchInput);
   };
 
