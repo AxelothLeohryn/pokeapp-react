@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function pad(num, size) {
   num = num.toString();
@@ -95,7 +96,7 @@ const Card = ({ pokemon }) => {
 
   return (
     <article className="card card-background" style={cardStyle}>
-      <a href={`/pokemon/${pokemon.id}`}>
+      <Link to={`/pokemon/${pokemon.id}`}>
         <img
           className="card-img"
           src={pokemon.sprites.other["official-artwork"].front_default}
@@ -109,7 +110,7 @@ const Card = ({ pokemon }) => {
             {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
           </h3>
         </div>
-      </a>
+      </Link>
     </article>
   );
 };
