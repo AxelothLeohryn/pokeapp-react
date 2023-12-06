@@ -1,0 +1,18 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+.pokemon-list {
+    width: 100%;
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media screen and (min-width: 720px) {
+    .pokemon-list {
+        margin-top: 70px;
+    }
+}

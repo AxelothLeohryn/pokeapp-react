@@ -1,16 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useContext } from "react";
+import { PokemonContext } from "./context/pokemonContext";
+
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [pokemons, setPokemons] = useState([]);
 
   return (
     <>
-      <h1>PokeApp</h1>
+      <PokemonContext.Provider value={{ pokemons, setPokemons }}>
+        <Header />
+        <Main />
+        <Footer />
+      </PokemonContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
