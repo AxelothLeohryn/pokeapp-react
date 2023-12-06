@@ -25,7 +25,7 @@ const SearchComponent = () => {
   };
   const handleSearch = (event) => {
     event.preventDefault();
-    const newSearch = event.target.search.value;
+    const newSearch = event.target.search.value.toLowerCase();
     event.target.search.value = ""; //Empty the search bar
     console.log("New search: " + newSearch);
     setSearch(newSearch);
