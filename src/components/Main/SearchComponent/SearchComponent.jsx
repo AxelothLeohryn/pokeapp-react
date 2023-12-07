@@ -26,9 +26,15 @@ const SearchComponent = () => {
   const handleSearch = (event) => {
     event.preventDefault();
     const newSearch = event.target.search.value.toLowerCase();
+    const regex = /^[a-zA-Z0-9]+$/;
+    if (regex.test(newSearch)) {
+      console.log("New search: " + newSearch);
+      setSearch(newSearch);
+    } else {
+      console.log("Invalid input: only letters and numbers are allowed.");
+    }
+
     event.target.search.value = ""; //Empty the search bar
-    console.log("New search: " + newSearch);
-    setSearch(newSearch);
   };
   const handleSearchInput = (event) => {
     event.preventDefault();
@@ -39,8 +45,9 @@ const SearchComponent = () => {
   //When search changes (user submitted search form), search for pokemon
   useEffect(() => {
     let pokeNames = pokemons.map((pokemon) => pokemon.name);
-    let pokeIds = pokemons.map((pokemon) => pokemon.id)
-    let coincidence = pokeNames.includes(search) || pokeIds.includes(Number(search));
+    let pokeIds = pokemons.map((pokemon) => pokemon.id);
+    let coincidence =
+      pokeNames.includes(search) || pokeIds.includes(Number(search));
     if (
       search.length > 0 && //Check that the searched pokemon is not already in the list, by name or id
       !coincidence
@@ -52,11 +59,14 @@ const SearchComponent = () => {
   //When searchInput changes and stays for 2 seconds, search for pokemon
   useEffect(() => {
     let pokeNames = pokemons.map((pokemon) => pokemon.name);
-    let pokeIds = pokemons.map((pokemon) => pokemon.id)
-    let coincidence = pokeNames.includes(searchInput) || pokeIds.includes(Number(searchInput));
+    let pokeIds = pokemons.map((pokemon) => pokemon.id);
+    let coincidence =
+      pokeNames.includes(searchInput) || pokeIds.includes(Number(searchInput));
+    const regex = /^[a-zA-Z0-9]+$/;
     if (
       searchInput.length > 0 && //Check that the searched pokemon is not already in the list, by name or id
-      !coincidence
+      !coincidence &&
+      regex.test(searchInput)
     ) {
       const getData = setTimeout(() => {
         searchPokemon(searchInput);
