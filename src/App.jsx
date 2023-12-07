@@ -13,7 +13,7 @@ function App() {
       <PokemonContext.Provider value={{ pokemons, setPokemons }}>
         <Header />
         <Main />
-        <Footer />
+        {/* <Footer /> */}
       </PokemonContext.Provider>
     </>
   );
