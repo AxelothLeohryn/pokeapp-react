@@ -1,0 +1,12 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+.genre-tag {
+    // border: 1px solid white;
+    @include flex-column;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: large;
+    color: white;
+    min-width: 40px;
+}

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { PokemonContext } from "./context/pokemonContext";
 
 import Header from "./components/Header";

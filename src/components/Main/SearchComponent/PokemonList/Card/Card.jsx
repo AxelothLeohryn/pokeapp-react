@@ -11,7 +11,7 @@ const Card = ({ pokemon }) => {
   const [type, setType] = useState("");
   const [color, setColor] = useState("gray");
 
-  // Get the type of the pokemon in the card
+  // Get the 1st type of the pokemon in the card
   useEffect(() => {
     setType(pokemon.types[0].type.name);
   }, [pokemon.types]);
@@ -94,9 +94,21 @@ const Card = ({ pokemon }) => {
     borderColor: color,
   };
 
+  //Prepare pokemon url to pass data through query params
+  const pokemonQuery = {
+    name: pokemon.name,
+    id: pokemon.id,
+    image: pokemon.sprites.other["official-artwork"].front_default,
+    type1: pokemon.types[0]?.type.name,
+    type2: pokemon.types[1]?.type.name, //it might not have a 2nd type
+  };
+  const queryString = new URLSearchParams(pokemonQuery).toString();
+  const pokemonUrl = `/pokemon/${pokemon.id}?${queryString}`;
+
+
   return (
     <article className="card card-background" style={cardStyle}>
-      <Link to={`/pokemon/${pokemon.id}`}>
+      <Link to={pokemonUrl}>
         <img
           className="card-img"
           src={pokemon.sprites.other["official-artwork"].front_default}

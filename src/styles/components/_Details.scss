@@ -1,0 +1,59 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#details-page {
+  @include flex-column;
+  justify-content: start;
+  background-color: #b5b5b5;
+  width: 100%;
+  min-height: calc(100vh - 5px);
+  z-index: 20;
+}
+
+#details-nav {
+  @include flex-row;
+  width: 100%;
+  background-color: #696969;
+  justify-content: space-between;
+  height: 56px;
+  color: white;
+  padding: 5px 0px;
+  #details-nav-left {
+    @include flex-row;
+    padding-left: 20px;
+    justify-content: space-between;
+    gap: 30px;
+    > img {
+      width: 40px;
+      filter: invert(1);
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    > img:hover {
+      transition: 0.25s;
+      transform: scale(1.05);
+      filter: invert(0.5);
+    }
+
+    h1 {
+      font-size: 34px;
+    }
+  }
+  #details-nav-right {
+    padding-right: 20px;
+  }
+}
+
+#pokemon-image {
+  width: 80vw;
+  max-width: 720px;
+}
+#details-box {
+  @include flex-column;
+  width: 100%;
+  background-color: rgb(143, 143, 143);
+}
+#genres {
+    display: flex;
+    gap: 20px;
+}

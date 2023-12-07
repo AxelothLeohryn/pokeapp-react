@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import HomeComponent from "./HomeComponent";
 import SearchComponent from "./SearchComponent";
-import Details  from "./Details"
+import Details from "./Details";
 const Main = () => {
   return (
     <>
