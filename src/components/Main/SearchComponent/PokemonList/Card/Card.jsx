@@ -9,7 +9,7 @@ function pad(num, size) {
 
 const Card = ({ pokemon }) => {
   const [type, setType] = useState("");
-  const [color, setColor] = useState("gray");
+  const [color, setColor] = useState();
 
   // Get the 1st type of the pokemon in the card
   useEffect(() => {

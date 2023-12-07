@@ -39,7 +39,11 @@ const SearchComponent = () => {
   const handleSearchInput = (event) => {
     event.preventDefault();
     const newSearchInput = event.target.value.toLowerCase();
-    setSearchInput(newSearchInput);
+    const setNewSearchInput = setTimeout(() => {
+      setSearchInput(newSearchInput);
+    }, 2000);
+    return () => clearTimeout(setNewSearchInput);
+    // setSearchInput(newSearchInput);
   };
 
   //When search changes (user submitted search form), search for pokemon
@@ -68,11 +72,8 @@ const SearchComponent = () => {
       !coincidence &&
       regex.test(searchInput)
     ) {
-      const getData = setTimeout(() => {
-        searchPokemon(searchInput);
-        document.getElementById("search-bar").value = ""; //Empty the search bar
-      }, 2000);
-      return () => clearTimeout(getData);
+      searchPokemon(searchInput);
+      document.getElementById("search-bar").value = ""; //Empty the search bar
     }
   }, [searchInput]);
 
