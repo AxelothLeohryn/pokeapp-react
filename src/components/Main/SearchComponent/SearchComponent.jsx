@@ -18,7 +18,7 @@ const SearchComponent = () => {
       );
       const resultData = result.data;
       console.log(resultData);
-      setPokemons([resultData, ...pokemons]);
+      setPokemons([...pokemons, resultData]);
     } catch (error) {
       console.error(error.message);
     }
@@ -39,9 +39,10 @@ const SearchComponent = () => {
   //When search changes (user submitted search form), search for pokemon
   useEffect(() => {
     let pokeNames = pokemons.map((pokemon) => pokemon.name);
-    let coincidence = pokeNames.includes(search);
+    let pokeIds = pokemons.map((pokemon) => pokemon.id)
+    let coincidence = pokeNames.includes(search) || pokeIds.includes(Number(search));
     if (
-      search.length > 0 && //Check that the searched pokemon is not already in the list
+      search.length > 0 && //Check that the searched pokemon is not already in the list, by name or id
       !coincidence
     ) {
       searchPokemon(search);
@@ -51,9 +52,10 @@ const SearchComponent = () => {
   //When searchInput changes and stays for 2 seconds, search for pokemon
   useEffect(() => {
     let pokeNames = pokemons.map((pokemon) => pokemon.name);
-    let coincidence = pokeNames.includes(searchInput);
+    let pokeIds = pokemons.map((pokemon) => pokemon.id)
+    let coincidence = pokeNames.includes(searchInput) || pokeIds.includes(Number(searchInput));
     if (
-      searchInput.length > 0 && //Check that the searched pokemon is not already in the list
+      searchInput.length > 0 && //Check that the searched pokemon is not already in the list, by name or id
       !coincidence
     ) {
       const getData = setTimeout(() => {

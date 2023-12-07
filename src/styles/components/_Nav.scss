@@ -1,0 +1,25 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.nav-ul {
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  li {
+    color: rgb(0, 0, 0);
+  }
+}
