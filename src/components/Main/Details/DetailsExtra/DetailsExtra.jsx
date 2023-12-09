@@ -1,87 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-const DetailsExtra = ({ details, bio, type }) => {
-  const [detailsColor, setDetailsColor] = useState("black");
+const DetailsExtra = ({ details, bio, type, detailsColor }) => {
+
   function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-
-  useEffect(() => {
-    switch (type) {
-      case "normal":
-        setDetailsColor("#AAA67F");
-        break;
-      case "fighting":
-        setDetailsColor("#C12239");
-        break;
-      case "flying":
-        setDetailsColor("#A891EC");
-        break;
-      case "poison":
-        setDetailsColor("#A43E9E");
-        break;
-      case "ground":
-        setDetailsColor("#DEC16B");
-        break;
-      case "rock":
-        setDetailsColor("#B69E31");
-        break;
-      case "bug":
-        setDetailsColor("#A7B723");
-        break;
-      case "ghost":
-        setDetailsColor("#70559B");
-        break;
-      case "steel":
-        setDetailsColor("#B7B9D0");
-        break;
-      case "fire":
-        setDetailsColor("#F57D31");
-        break;
-      case "water":
-        setDetailsColor("#6493EB");
-        break;
-      case "grass":
-        setDetailsColor("#74CB48");
-        break;
-      case "electric":
-        setDetailsColor("#F9CF30");
-        break;
-      case "psychic":
-        setDetailsColor("#FB5584");
-        break;
-      case "ice":
-        setDetailsColor("#9AD6DF");
-        break;
-      case "dragon":
-        setDetailsColor("#7037FF");
-        break;
-      case "dark":
-        setDetailsColor("#75574C");
-        break;
-      case "fairy":
-        setDetailsColor("#E69EAC");
-        break;
-      case "shadow":
-        setDetailsColor("black");
-        break;
-      default:
-        setDetailsColor("gray");
-        break;
-    }
-  }, [type]);
-
   const textStyle = {
     color: detailsColor,
   };
-  const barStyle = {
-    backgroundColor: "#e0e0de", // background color for the unfilled part
-    color: detailsColor, // color for the filled part (this sets the text color in some browsers)
-  };
+
+  console.log(detailsColor);
   return (
     <>
       <section id="details-main-about">
-        <p id="details-main-bio">{bio.replace(/[\n\f]/g, " ")}</p>
+        {bio.length > 0 ? <p id="details-main-bio">{bio.replace(/[\n\f]/g, " ")}</p> : <p>No biography found for this pokemon.</p>}
         <h2 style={textStyle}>About</h2>
         <div id="details-main-about-container">
           <div className="properties-box ">

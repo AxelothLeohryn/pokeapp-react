@@ -18,7 +18,7 @@
   height: 56px;
   color: white;
   padding: 5px 0px;
-  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5) inset;
+  // box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5) inset;
   #details-nav-left {
     @include flex-row;
     padding-left: 20px;
@@ -39,13 +39,21 @@
 
     h1 {
       font-size: 26px;
-      
     }
   }
   #details-nav-right {
     padding-right: 20px;
-    animation: slideFromLeft 0.5s ease-in;
+    animation: slideFromRight 0.25s ease-in;
   }
+}
+#details-background {
+  @include flex-column;
+  border-radius: 500px;
+  margin-top: 16px;
+  // background-image: url('/public/bg-types/normal-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  // width: 100%;
 }
 
 #pokemon-image {
@@ -54,12 +62,13 @@
   animation: zoomIn 0.2s ease-in;
   transition: 1s;
   z-index: 5;
+  transform: scale(1.1);
   // background-color: red; ADD BG COLOR REACT
 }
-#pokemon-image:hover {
-  transition: 1s;
-  transform: scale(1.02);
-}
+// #pokemon-image:hover {
+//   transition: 1s;
+//   transform: scale(1.1);
+// }
 #details-main {
   @include flex-column;
   width: 100%;
@@ -69,7 +78,11 @@
 #genres {
   display: flex;
   gap: 20px;
-  animation: slideFromTop 0.2s ease-in;
+  animation: zoomIn 0.2s ease-in;
+
+  position: relative;
+  bottom: 20px;
+  z-index: 10;
 }
 
 #details-main-fetch {
@@ -77,7 +90,6 @@
   gap: 16px;
   padding: 20px;
   animation: slideFromBottom 0.25s ease-out;
-  
 }
 #details-loading {
   @include flex-column;

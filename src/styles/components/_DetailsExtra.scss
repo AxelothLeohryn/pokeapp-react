@@ -68,6 +68,7 @@
 #details-main-bio {
   font-weight: 400;
   font-style: italic;
+  margin-top: 0px;
 }
 #details-main-stats {
   @include flex-column;

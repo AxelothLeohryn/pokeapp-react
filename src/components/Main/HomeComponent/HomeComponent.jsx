@@ -15,7 +15,11 @@ const HomeComponent = () => {
   return (
     <>
       <h1>My Searched Pokemons</h1>
-      <section className="pokemon-list">{printCards()}</section>
+      {pokemons.length > 0 ? (
+        <section className="pokemon-list">{printCards()}</section>
+      ) : (
+        <h2 style={{color: "gray"}}>You haven't searched any pokemons yet.</h2>
+      )}
     </>
   );
 };

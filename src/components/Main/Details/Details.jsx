@@ -5,8 +5,9 @@ import DetailsExtra from "./DetailsExtra";
 import axios from "axios";
 
 const Details = () => {
-  const [details, setDetails] = useState();
+  const [details, setDetails] = useState("");
   const [bio, setBio] = useState("");
+  const [color, setColor] = useState();
 
   const navigate = useNavigate();
   const goBack = () => {
@@ -32,6 +33,137 @@ const Details = () => {
   const type2LowerCase = queryParams.get("type2");
   const type2 =
     type2LowerCase.charAt(0).toUpperCase() + type2LowerCase.slice(1);
+
+  let backgroundImage;
+  switch (type1) {
+    case "Normal":
+      backgroundImage = "/public/bg-types/normal.jpg";
+      break;
+    case "Fighting":
+      backgroundImage = "/public/bg-types/fighting.jpg";
+      break;
+    case "Flying":
+      backgroundImage = "/public/bg-types/flying.jpg";
+      break;
+    case "Poison":
+      backgroundImage = "/public/bg-types/poison.jpg";
+      break;
+    case "Ground":
+      backgroundImage = "/public/bg-types/ground.jpg";
+      break;
+    case "Rock":
+      backgroundImage = "/public/bg-types/rock.jpg";
+      break;
+    case "Bug":
+      backgroundImage = "/public/bg-types/bug.jpg";
+      break;
+    case "Ghost":
+      backgroundImage = "/public/bg-types/ghost.jpg";
+      break;
+    case "Steel":
+      backgroundImage = "/public/bg-types/steel.jpg";
+      break;
+    case "Fire":
+      backgroundImage = "/public/bg-types/fire.jpg";
+      break;
+    case "Water":
+      backgroundImage = "/public/bg-types/water.jpg";
+      break;
+    case "Grass":
+      backgroundImage = "/public/bg-types/grass.jpg";
+      break;
+    case "Electric":
+      backgroundImage = "/public/bg-types/electric.jpg";
+      break;
+    case "Psychic":
+      backgroundImage = "/public/bg-types/psychic.jpg";
+      break;
+    case "Ice":
+      backgroundImage = "/public/bg-types/ice.jpg";
+      break;
+    case "Dragon":
+      backgroundImage = "/public/bg-types/dragon.jpg";
+      break;
+    case "Dark":
+      backgroundImage = "/public/bg-types/dark.jpg";
+      break;
+    case "Fairy":
+      backgroundImage = "/public/bg-types/fairy.jpg";
+      break;
+    default:
+      break;
+  }
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+  }
+
+  useEffect(() => {
+    switch (type1) {
+      case "Normal":
+        setColor("#AAA67F");
+        break;
+      case "Fighting":
+        setColor("#C12239");
+        break;
+      case "Flying":
+        setColor("#A891EC");
+        break;
+      case "Poison":
+        setColor("#A43E9E");
+        break;
+      case "Ground":
+        setColor("#DEC16B");
+        break;
+      case "Rock":
+        setColor("#B69E31");
+        break;
+      case "Bug":
+        setColor("#A7B723");
+        break;
+      case "Ghost":
+        setColor("#70559B");
+        break;
+      case "Steel":
+        setColor("#B7B9D0");
+        break;
+      case "Fire":
+        setColor("#F57D31");
+        break;
+      case "Water":
+        setColor("#6493EB");
+        break;
+      case "Grass":
+        setColor("#74CB48");
+        break;
+      case "Electric":
+        setColor("#F9CF30");
+        break;
+      case "Psychic":
+        setColor("#FB5584");
+        break;
+      case "Ice":
+        setColor("#9AD6DF");
+        break;
+      case "Dragon":
+        setColor("#7037FF");
+        break;
+      case "Dark":
+        setColor("#75574C");
+        break;
+      case "Fairy":
+        setColor("#E69EAC");
+        break;
+      case "Shadow":
+        setColor("black");
+        break;
+      default:
+        setColor("gray");
+        break;
+    }
+  }, [type1]);
+  const themeColor = {
+    backgroundColor: color,
+  };
 
   const searchDetails = async (id) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 1000)); //Siumlate delay REMOVE IN FINAL VERSION
@@ -71,7 +203,7 @@ const Details = () => {
   return (
     <>
       <section id="details">
-        <section id="details-nav">
+        <section id="details-nav" style={themeColor}>
           <div id="details-nav-left">
             <img
               onClick={goBack}
@@ -85,7 +217,9 @@ const Details = () => {
           </div>
         </section>
         <section id="details-main">
-          <img id="pokemon-image" src={image} alt={name} />
+          <div id="details-background" style={backgroundStyle}>
+            <img id="pokemon-image" src={image} alt={name} />
+          </div>
           <section id="genres">
             {type1 !== "Undefined" ? <TypeTag type={type1} /> : null}
             {type2 !== "Undefined" ? <TypeTag type={type2} /> : null}
@@ -97,9 +231,15 @@ const Details = () => {
                 details={details}
                 bio={bio}
                 type={details.types[0].type.name}
+                detailsColor={color}
               />
             </section>
-          ) : <section id="details-loading"><h2>Loading details...</h2><img id="spinner" src="/pikachu.gif" alt="Loading..." /></section>}
+          ) : (
+            <section id="details-loading">
+              <h2>Loading details...</h2>
+              <img id="spinner" src="/pikachu.gif" alt="Loading..." />
+            </section>
+          )}
         </section>
       </section>
     </>
