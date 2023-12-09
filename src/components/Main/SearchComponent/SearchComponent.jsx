@@ -18,7 +18,8 @@ const SearchComponent = () => {
       );
       const resultData = result.data;
       console.log(resultData);
-      setPokemons([...pokemons, resultData]);
+      setPokemons([resultData, ...pokemons]);
+      document.getElementById("search-bar").value = ""; //Empty the search bar
     } catch (error) {
       console.error(error.message);
     }
@@ -39,11 +40,7 @@ const SearchComponent = () => {
   const handleSearchInput = (event) => {
     event.preventDefault();
     const newSearchInput = event.target.value.toLowerCase();
-    const setNewSearchInput = setTimeout(() => {
-      setSearchInput(newSearchInput);
-    }, 2000);
-    return () => clearTimeout(setNewSearchInput);
-    // setSearchInput(newSearchInput);
+    setSearchInput(newSearchInput);
   };
 
   //When search changes (user submitted search form), search for pokemon
@@ -61,19 +58,22 @@ const SearchComponent = () => {
   }, [search]);
 
   //When searchInput changes and stays for 2 seconds, search for pokemon
-  useEffect(() => {
-    let pokeNames = pokemons.map((pokemon) => pokemon.name);
+  let pokeNames = pokemons.map((pokemon) => pokemon.name);
     let pokeIds = pokemons.map((pokemon) => pokemon.id);
     let coincidence =
       pokeNames.includes(searchInput) || pokeIds.includes(Number(searchInput));
     const regex = /^[a-zA-Z0-9]+$/;
+  useEffect(() => {
+    // console.log("Im changing");
     if (
       searchInput.length > 0 && //Check that the searched pokemon is not already in the list, by name or id
       !coincidence &&
       regex.test(searchInput)
     ) {
-      searchPokemon(searchInput);
-      document.getElementById("search-bar").value = ""; //Empty the search bar
+      const setNewSearchInput = setTimeout(() => {
+        searchPokemon(searchInput);
+      }, 2000);
+      return () => clearTimeout(setNewSearchInput);
     }
   }, [searchInput]);
 

@@ -1,5 +1,48 @@
 @font-face {
-    font-family: 'Pokemon';
-    src: url('/fonts/Pokemon_Classic.ttf') format("truetype"); 
+  font-family: "Pokemon";
+  src: url("/fonts/Pokemon_Classic.ttf") format("truetype");
 }
-$pokemon: 'Pokemon'
+$pokemon: "Pokemon";
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-300px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes slideFromTop {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+  @keyframes slideFromBottom {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+@keyframes zoomIn {
+    0% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

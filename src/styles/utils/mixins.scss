@@ -13,3 +13,20 @@
     align-items: center;
     justify-content: center;
 }
+//Stats bars color
+@mixin type-color($color) {
+    &::-webkit-progress-value {
+      background-color: $color;
+      border-radius: 10px; // Rounded corners for the filled part
+      transition: width 2s ease; // Smooth transition for the filled part
+    }
+    &::-webkit-progress-bar {
+      background-color: #e0e0de; // A lighter background for the unfilled part
+      border-radius: 10px; // Rounded corners for the entire bar
+      box-shadow: inset  0px 0px 1px rgba(255, 255, 255, 1) // Inner shadow for some depth
+    }
+    &::-moz-progress-bar {
+      background-color: $color;
+      border-radius: 10px;
+    }
+  }

@@ -3,61 +3,60 @@ import React, { useContext, useEffect, useState } from "react";
 const TypeTag = ({ type }) => {
   const [typeColor, setTypeColor] = useState();
   useEffect(() => {
-    console.log(type);
     switch (type) {
       case "Normal":
-        setTypeColor("#A8A77A");
+        setTypeColor("#AAA67F");
         break;
       case "Fighting":
-        setTypeColor("#C22E28");
+        setTypeColor("#C12239");
         break;
       case "Flying":
-        setTypeColor("#A98FF3");
+        setTypeColor("#A891EC");
         break;
       case "Poison":
-        setTypeColor("#A33EA1");
+        setTypeColor("#A43E9E");
         break;
       case "Ground":
-        setTypeColor("#E2BF65");
+        setTypeColor("#DEC16B");
         break;
       case "Rock":
-        setTypeColor("#B6A136");
+        setTypeColor("#B69E31");
         break;
       case "Bug":
-        setTypeColor("#A6B91A");
+        setTypeColor("#A7B723");
         break;
       case "Ghost":
-        setTypeColor("#735797");
+        setTypeColor("#70559B");
         break;
       case "Steel":
-        setTypeColor("#B7B7CE");
+        setTypeColor("#B7B9D0");
         break;
       case "Fire":
-        setTypeColor("#EE8130");
+        setTypeColor("#F57D31");
         break;
       case "Water":
-        setTypeColor("#6390F0");
+        setTypeColor("#6493EB");
         break;
       case "Grass":
-        setTypeColor("#7AC74C");
+        setTypeColor("#74CB48");
         break;
       case "Electric":
-        setTypeColor("#F7D02C");
+        setTypeColor("#F9CF30");
         break;
       case "Psychic":
-        setTypeColor("#F95587");
+        setTypeColor("#FB5584");
         break;
       case "Ice":
-        setTypeColor("#96D9D6");
+        setTypeColor("#9AD6DF");
         break;
       case "Dragon":
-        setTypeColor("#6F35FC");
+        setTypeColor("#7037FF");
         break;
       case "Dark":
-        setTypeColor("#705746");
+        setTypeColor("#75574C");
         break;
       case "Fairy":
-        setTypeColor("#D685AD");
+        setTypeColor("#E69EAC");
         break;
       case "Shadow":
         setTypeColor("black");
