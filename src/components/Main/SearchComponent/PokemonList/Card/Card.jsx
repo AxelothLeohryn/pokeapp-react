@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ pokemon }) => {
   const [type, setType] = useState("");
-  const [color, setColor] = useState();
+  const [cardColor, setColor] = useState();
 
   function formatId(num, size) {
     num = num.toString();
@@ -84,14 +84,14 @@ const Card = ({ pokemon }) => {
 
   //Inline styles for the card, each card will have different colors according to the pokemon type
   const cardStyle = {
-    borderColor: color,
-    backgroundColor: color,
+    borderColor: cardColor,
+    backgroundColor: cardColor,
     // boxShadow: `-5px -5px 5px rgba(0, 0, 0, 0.5)`,
   };
 
   const cardNameBackgroundStyle = {
-    backgroundColor: color,
-    borderColor: color,
+    backgroundColor: cardColor,
+    borderColor: cardColor,
   };
 
   //Prepare pokemon url to pass data through query params
