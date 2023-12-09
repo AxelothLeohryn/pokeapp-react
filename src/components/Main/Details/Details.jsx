@@ -34,69 +34,6 @@ const Details = () => {
   const type2 =
     type2LowerCase.charAt(0).toUpperCase() + type2LowerCase.slice(1);
 
-  let backgroundImage;
-  switch (type1) {
-    case "Normal":
-      backgroundImage = "/public/bg-types/normal.jpg";
-      break;
-    case "Fighting":
-      backgroundImage = "/public/bg-types/fighting.jpg";
-      break;
-    case "Flying":
-      backgroundImage = "/public/bg-types/flying.jpg";
-      break;
-    case "Poison":
-      backgroundImage = "/public/bg-types/poison.jpg";
-      break;
-    case "Ground":
-      backgroundImage = "/public/bg-types/ground.jpg";
-      break;
-    case "Rock":
-      backgroundImage = "/public/bg-types/rock.jpg";
-      break;
-    case "Bug":
-      backgroundImage = "/public/bg-types/bug.jpg";
-      break;
-    case "Ghost":
-      backgroundImage = "/public/bg-types/ghost.jpg";
-      break;
-    case "Steel":
-      backgroundImage = "/public/bg-types/steel.jpg";
-      break;
-    case "Fire":
-      backgroundImage = "/public/bg-types/fire.jpg";
-      break;
-    case "Water":
-      backgroundImage = "/public/bg-types/water.jpg";
-      break;
-    case "Grass":
-      backgroundImage = "/public/bg-types/grass.jpg";
-      break;
-    case "Electric":
-      backgroundImage = "/public/bg-types/electric.jpg";
-      break;
-    case "Psychic":
-      backgroundImage = "/public/bg-types/psychic.jpg";
-      break;
-    case "Ice":
-      backgroundImage = "/public/bg-types/ice.jpg";
-      break;
-    case "Dragon":
-      backgroundImage = "/public/bg-types/dragon.jpg";
-      break;
-    case "Dark":
-      backgroundImage = "/public/bg-types/dark.jpg";
-      break;
-    case "Fairy":
-      backgroundImage = "/public/bg-types/fairy.jpg";
-      break;
-    default:
-      break;
-  }
-  const backgroundStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-  }
-
   useEffect(() => {
     switch (type1) {
       case "Normal":
@@ -217,7 +154,7 @@ const Details = () => {
           </div>
         </section>
         <section id="details-main">
-          <div id="details-background" style={backgroundStyle}>
+          <div id="details-background" className={type1LowerCase}>
             <img id="pokemon-image" src={image} alt={name} />
           </div>
           <section id="genres">
