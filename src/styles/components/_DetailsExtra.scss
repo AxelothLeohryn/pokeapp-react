@@ -1,0 +1,151 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#details-main-about {
+  @include flex-column;
+  width: 100%;
+  p {
+    font-weight: 400;
+  }
+}
+#details-main-about-container {
+  display: flex;
+  align-items: flex-end;
+  align-self: stretch;
+  justify-content: space-between;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5) inset;
+
+  img {
+    width: 28px;
+    
+  }
+}
+.properties-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  flex: 1 0 0;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.properties-value {
+  display: flex;
+  padding: 8px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+#properties-box-moves {
+  //   height: 116px;
+}
+.properties-tag {
+  text-align: justify;
+  line-height: 16px;
+  color: rgb(125, 125, 125);
+}
+#moves {
+  @include flex-column;
+  display: flex;
+  height: 32px;
+  align-items: center;
+  gap: 8px;
+  p {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+  }
+}
+#height-img {
+  transform: rotate(90deg);
+  
+}
+
+#details-main-bio {
+  font-weight: 400;
+  font-style: italic;
+}
+#details-main-stats {
+  @include flex-column;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5) inset;
+  article {
+    width: 80%;
+    max-width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // gap: 8px;
+  }
+  progress {
+    appearance: none;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 2s;
+    animation: slideFromLeft 1s ease-in;
+    @include type-color(#e0e0de);
+    &.normal-progress {
+      @include type-color(#aaa67f);
+    }
+    &.fighting-progress {
+      @include type-color(#c12239);
+    }
+    &.flying-progress {
+      @include type-color(#a891ec);
+    }
+    &.poison-progress {
+      @include type-color(#a43e9e);
+    }
+    &.ground-progress {
+      @include type-color(#dec16b);
+    }
+    &.rock-progress {
+      @include type-color(#b69e31);
+    }
+    &.bug-progress {
+      @include type-color(#a7b723);
+    }
+    &.ghost-progress {
+      @include type-color(#70559b);
+    }
+    &.steel-progress {
+      @include type-color(#b7b9d0);
+    }
+    &.fire-progress {
+      @include type-color(#f57d31);
+    }
+    &.water-progress {
+      @include type-color(#6493eb);
+    }
+    &.grass-progress {
+      @include type-color(#74cb48);
+    }
+    &.electric-progress {
+      @include type-color(#f9cf30);
+    }
+    &.psychic-progress {
+      @include type-color(#fb5584);
+    }
+    &.ice-progress {
+      @include type-color(#9ad6df);
+    }
+    &.dragon-progress {
+      @include type-color(#7037ff);
+    }
+    &.dark-progress {
+      @include type-color(#75574c);
+    }
+    &.fairy-progress {
+      @include type-color(#e69eac);
+    }
+    &.shadow-progress {
+      @include type-color(black);
+    }
+  }
+}

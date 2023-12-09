@@ -4,9 +4,9 @@
 .genre-tag {
     // border: 1px solid white;
     @include flex-column;
-    border-radius: 15px;
+    border-radius: 50px;
     padding: 5px;
     font-size: large;
     color: white;
-    min-width: 40px;
+    min-width: 80px;
 }

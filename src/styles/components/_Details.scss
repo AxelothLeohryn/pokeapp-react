@@ -1,10 +1,10 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
-#details-page {
+#details {
   @include flex-column;
   justify-content: start;
-  background-color: #b5b5b5;
+  background-color: #494949;
   width: 100%;
   min-height: calc(100vh - 5px);
   z-index: 20;
@@ -13,16 +13,18 @@
 #details-nav {
   @include flex-row;
   width: 100%;
-  background-color: #696969;
+  // background-color: #696969;
   justify-content: space-between;
   height: 56px;
   color: white;
   padding: 5px 0px;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5) inset;
   #details-nav-left {
     @include flex-row;
     padding-left: 20px;
     justify-content: space-between;
     gap: 30px;
+    animation: slideFromLeft 0.25s ease-in;
     > img {
       width: 40px;
       filter: invert(1);
@@ -36,24 +38,61 @@
     }
 
     h1 {
-      font-size: 34px;
+      font-size: 26px;
+      
     }
   }
   #details-nav-right {
     padding-right: 20px;
+    animation: slideFromLeft 0.5s ease-in;
   }
 }
 
 #pokemon-image {
   width: 80vw;
-  max-width: 720px;
+  max-width: 400px;
+  animation: zoomIn 0.2s ease-in;
+  transition: 1s;
+  z-index: 5;
+  // background-color: red; ADD BG COLOR REACT
 }
-#details-box {
+#pokemon-image:hover {
+  transition: 1s;
+  transform: scale(1.02);
+}
+#details-main {
   @include flex-column;
   width: 100%;
-  background-color: rgb(143, 143, 143);
+  background-color: #f7f7f7;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5) inset;
 }
 #genres {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
+  animation: slideFromTop 0.2s ease-in;
 }
+
+#details-main-fetch {
+  @include flex-column;
+  gap: 16px;
+  padding: 20px;
+  animation: slideFromBottom 0.25s ease-out;
+  
+}
+#details-loading {
+  @include flex-column;
+  gap: 16px;
+  padding: 20px;
+  min-height: 40vh;
+}
+
+#spinner {
+  width: 100px;
+}
+// @media screen and (min-width: 720px) {
+//   #details-main-fetch {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: start;
+//   }
+// }

@@ -11,22 +11,22 @@ const Search = ({ handleSearch, handleSearchInput }) => {
   return (
     <>
       <div id="search-title">
-        <img id="search-title-icon" src="/icons/pokefinder.svg" />
+        <img id="search-title-icon" src="/icons/pokeball.svg" />
         <h1>PokeSearcher</h1>
       </div>
       <form id="search-form" onSubmit={handleSearch}>
-        <img id="search-form-icon" src="/icons/magnifying-glass.svg" alt="" />
+        <img id="search-form-icon" src="/icons/search.svg" alt="" />
         <input
           onChange={handleSearchInput}
           type="text"
           name="search"
           id="search-bar"
-          placeholder="Search for a pokemon..."
+          placeholder="Search"
         />
         <img
           onClick={clearSearch}
           id="search-cancel-icon"
-          src="/icons/xmark.svg"
+          src="/icons/close.svg"
           alt=""
         />
         {/* <button>Search</button> */}

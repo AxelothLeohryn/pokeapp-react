@@ -14,7 +14,7 @@ const HomeComponent = () => {
 
   return (
     <>
-      <h1>My Current Pokemons</h1>
+      <h1>My Searched Pokemons</h1>
       <section className="pokemon-list">{printCards()}</section>
     </>
   );

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function pad(num, size) {
-  num = num.toString();
-  while (num.length < size) num = "0" + num;
-  return num;
-}
-
 const Card = ({ pokemon }) => {
   const [type, setType] = useState("");
   const [color, setColor] = useState();
+
+  function formatId(num, size) {
+    num = num.toString();
+    while (num.length < size) num = "0" + num;
+    return "#" + num;
+  }
 
   // Get the 1st type of the pokemon in the card
   useEffect(() => {
@@ -20,58 +20,58 @@ const Card = ({ pokemon }) => {
   useEffect(() => {
     switch (type) {
       case "normal":
-        setColor("#A8A77A");
+        setColor("#AAA67F");
         break;
       case "fighting":
-        setColor("#C22E28");
+        setColor("#C12239");
         break;
       case "flying":
-        setColor("#A98FF3");
+        setColor("#A891EC");
         break;
       case "poison":
-        setColor("#A33EA1");
+        setColor("#A43E9E");
         break;
       case "ground":
-        setColor("#E2BF65");
+        setColor("#DEC16B");
         break;
       case "rock":
-        setColor("#B6A136");
+        setColor("#B69E31");
         break;
       case "bug":
-        setColor("#A6B91A");
+        setColor("#A7B723");
         break;
       case "ghost":
-        setColor("#735797");
+        setColor("#70559B");
         break;
       case "steel":
-        setColor("#B7B7CE");
+        setColor("#B7B9D0");
         break;
       case "fire":
-        setColor("#EE8130");
+        setColor("#F57D31");
         break;
       case "water":
-        setColor("#6390F0");
+        setColor("#6493EB");
         break;
       case "grass":
-        setColor("#7AC74C");
+        setColor("#74CB48");
         break;
       case "electric":
-        setColor("#F7D02C");
+        setColor("#F9CF30");
         break;
       case "psychic":
-        setColor("#F95587");
+        setColor("#FB5584");
         break;
       case "ice":
-        setColor("#96D9D6");
+        setColor("#9AD6DF");
         break;
       case "dragon":
-        setColor("#6F35FC");
+        setColor("#7037FF");
         break;
       case "dark":
-        setColor("#705746");
+        setColor("#75574C");
         break;
       case "fairy":
-        setColor("#D685AD");
+        setColor("#E69EAC");
         break;
       case "shadow":
         setColor("black");
@@ -105,7 +105,6 @@ const Card = ({ pokemon }) => {
   const queryString = new URLSearchParams(pokemonQuery).toString();
   const pokemonUrl = `/pokemon/${pokemon.id}?${queryString}`;
 
-
   return (
     <article className="card card-background" style={cardStyle}>
       <Link to={pokemonUrl}>
@@ -115,7 +114,7 @@ const Card = ({ pokemon }) => {
           alt={pokemon.name}
         />
         <div className="card-id">
-          <span>{"#" + pad(pokemon.id, 3)}</span>
+          <span>{formatId(pokemon.id, 3)}</span>
         </div>
         <div className="card-name-background" style={cardNameBackgroundStyle}>
           <h3 className="card-name">
