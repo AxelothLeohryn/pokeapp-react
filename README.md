@@ -19,30 +19,28 @@
 ## Web Preview
 
 ### Search
-Users can search for Pokémon by name or ID. 
+- Users can search for Pokémon by name or ID. 
+- Leaving a correct pokemon name or id in the search input for 2 seconds will trigger the search.
+- Automatically checks that the pokemon to search is not already in the list.
+- Dynamic hover animation for the different cards.
 
-Leaving a correct pokemon name or id in the search input for 2 seconds will trigger the search.
-
-Automatically checks that the pokemon to search is not already in the list.
-
-Dynamic hover animation for the different cards.
-
-<img src='./src/assets/gifs/search.gif' height='500'> <img src='./src/assets/gifs/cards.gif' height='500'>
+<img src='./src/assets/gifs/search.gif' height='560'> <img src='./src/assets/gifs/cards.gif' height='560'>
 
 
 ### Details
-Detailed view for a specific pokemon. The name, id, image and types are passed through query params. The rest of the details (bio, stats) are fetched from the PokeAPI.
+- Detailed view for a specific pokemon.
+- The name, id, image and types are passed through query params (search/id?name=...)
+- The rest of the details (bio, stats) are fetched from the PokeAPI.
 
 
 ![Details](./src/assets/gifs/details.gif)
 
 ### Pokemon Creation
-Create your own new Pokemon with a simple form, and see how it gets displayed alongside the rest of your Pokemons.
+- Create your own new Pokemon with a simple form, and see how it gets displayed alongside the rest of your Pokemons.
+- Custom notifications alert you of the different requisites for the name, id and other parameters.
 
-Custom notifications alert you of the different requisites for the name, id and other parameters.
 
-
-<img src='./src/assets/gifs/create.gif' height='500'> <img src='./src/assets/screenshots/notifications.png' height='500'>
+<img src='./src/assets/gifs/create.gif' height='560'> <img src='./src/assets/screenshots/notifications.png' height='560'>
 
 ## Vitest Unit Testing
 Basic testing done using Vitest for the main components.
@@ -83,10 +81,10 @@ npm install npm@latest -g
 Start the development server:
 
 ```sh
-npm start
+npm run dev
 ```
 
-The application will be available at `http://localhost:3000`.
+The application will be available at `http://localhost:5173`.
 
 
 
