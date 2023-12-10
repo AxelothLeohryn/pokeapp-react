@@ -145,7 +145,7 @@ const Details = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoadingTimeout(true);
-    }, 5000);
+    }, 4000);
 
     // Clear the timeout if the component unmounts
     return () => clearTimeout(timer);

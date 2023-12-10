@@ -21,7 +21,7 @@ const Search = ({ handleSearch, handleSearchInput }) => {
         <img id="search-form-icon" src="/icons/search.svg" alt="" />
         <input
           onChange={handleSearchInput}
-          type="text"
+          type="search"
           name="search"
           id="search-bar"
           placeholder="Search"

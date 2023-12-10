@@ -14,7 +14,7 @@ const Card = ({ pokemon }) => {
   // Get the 1st type of the pokemon in the card
   useEffect(() => {
     setType(pokemon.types[0].type.name);
-  }, [pokemon.types]);
+  }, [type]);
 
   // Get the color that corresponds to the type
   useEffect(() => {
@@ -98,7 +98,8 @@ const Card = ({ pokemon }) => {
   const pokemonQuery = {
     name: pokemon.name,
     id: pokemon.id,
-    image: pokemon.sprites.other["official-artwork"].front_default || pokemon.image,
+    image:
+      pokemon.sprites.other["official-artwork"].front_default || pokemon.image,
     type1: pokemon.types[0]?.type.name,
     type2: pokemon.types[1]?.type.name, //it might not have a 2nd type
   };
@@ -106,9 +107,14 @@ const Card = ({ pokemon }) => {
   const pokemonUrl = `/pokemon/${pokemon.id}?${queryString}`;
 
   return (
-    <article className="card card-background" style={cardStyle}>
+    <article
+      data-testid="Card"
+      className="card card-background"
+      style={cardStyle}
+    >
       <Link to={pokemonUrl}>
         <img
+          data-testid="Card_img"
           className="card-img"
           src={pokemon.sprites.other["official-artwork"].front_default}
           alt={pokemon.name}
@@ -117,7 +123,7 @@ const Card = ({ pokemon }) => {
           <span>{formatId(pokemon.id, 3)}</span>
         </div>
         <div className="card-name-background" style={cardNameBackgroundStyle}>
-          <h3 className="card-name">
+          <h3 data-testid="Card_title" className="card-name">
             {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
           </h3>
         </div>
