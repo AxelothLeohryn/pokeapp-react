@@ -52,6 +52,7 @@ Basic testing done using Vitest for the main components.
 
 
 ## Try it yourself
+PokeApp is available [here](https://pokeapp-react-axeloth.netlify.app/).
 
 To get a local copy up and running, follow these simple steps.
 
