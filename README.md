@@ -29,6 +29,7 @@
 
 ### Details
 - Detailed view for a specific pokemon.
+- Dynamic color theme depending on the primary type of the pokemon.
 - The name, id, image and types are passed through query params (search/id?name=...)
 - The rest of the details (bio, stats) are fetched from the PokeAPI.
 - If no details are found (like when viewing your custom Pokemon), a *No details found* message appears.
