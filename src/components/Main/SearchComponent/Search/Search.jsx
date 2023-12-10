@@ -10,9 +10,12 @@ const Search = ({ handleSearch, handleSearchInput }) => {
 
   return (
     <>
-      <div id="search-title">
+      <div id="search-title-banner">
+        <div id="search-title">
         <img id="search-title-icon" src="/icons/pokeball.svg" />
         <h1>PokeSearcher</h1>
+        </div>
+        <h5>Search Pokemons and add them to your list.</h5>
       </div>
       <form id="search-form" onSubmit={handleSearch}>
         <img id="search-form-icon" src="/icons/search.svg" alt="" />

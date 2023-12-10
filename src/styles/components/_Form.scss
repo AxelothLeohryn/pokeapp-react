@@ -1,12 +1,28 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
-#create-title {
-  display: flex;
-  gap: 10px;
-  img {
-    width: 40px;
+#create-title-banner {
+    @include flex-column;
+    gap: 0px;
+    margin-bottom: 16px;
+    h5 {
+      margin: 6px;
+      color: rgb(92, 92, 92);
+      font-style: italic;
+    }
   }
+
+#create-title {
+    @include flex-row;
+    gap: 10px;
+    margin-top: 16px;
+    img {
+        width: 40px;
+        height: 40px;
+    }
+    h1 {
+      margin: 0px;
+    }
 }
 
 #create-form {

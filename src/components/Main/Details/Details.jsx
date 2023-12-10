@@ -9,6 +9,9 @@ const Details = () => {
   const [bio, setBio] = useState("");
   const [color, setColor] = useState();
 
+  const [loading, setLoading] = useState(true);
+  const [loadingTimeout, setLoadingTimeout] = useState(false);
+
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1);
@@ -103,8 +106,8 @@ const Details = () => {
   };
 
   const searchDetails = async (id) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000)); //Siumlate delay REMOVE IN FINAL VERSION
     try {
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000)); //Siumlate delay REMOVE IN FINAL VERSION
       const result = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
       const resultData = result.data;
       console.log({
@@ -112,6 +115,7 @@ const Details = () => {
         data: resultData,
       });
       setDetails(resultData);
+      setLoading(false);
     } catch (error) {
       console.error(error.message);
     }
@@ -137,6 +141,15 @@ const Details = () => {
     searchBio(idNumber);
   }, []);
 
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoadingTimeout(true);
+    }, 5000);
+
+    // Clear the timeout if the component unmounts
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       <section id="details">
@@ -162,21 +175,27 @@ const Details = () => {
             {type2 !== "Undefined" ? <TypeTag type={type2} /> : null}
           </section>
 
-          {details ? (
-            <section id="details-main-fetch">
-              <DetailsExtra
+          {loading ? (
+        <section id="details-loading">
+          {!loadingTimeout ? (
+            <>
+              <h2>Loading details...</h2>
+              <img id="spinner" src="/pikachu.gif" alt="Loading..." />
+            </>
+          ) : (
+            <h2>No details found for this pokemon.</h2>
+          )}
+        </section>
+      ) : (
+        <section id="details-main-fetch">
+           <DetailsExtra
                 details={details}
                 bio={bio}
                 type={details.types[0].type.name}
                 detailsColor={color}
               />
-            </section>
-          ) : (
-            <section id="details-loading">
-              <h2>Loading details...</h2>
-              <img id="spinner" src="/pikachu.gif" alt="Loading..." />
-            </section>
-          )}
+        </section>
+      )}
         </section>
       </section>
     </>
