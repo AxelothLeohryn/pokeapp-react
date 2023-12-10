@@ -8,7 +8,7 @@ const PokemonList = ({ pokemons }) => {
       return <Card key={uuidv4()} pokemon={pokemon} />;
     });
   };
-  return <section className="pokemon-list">{printCards()}</section>;
+  return <section data-testid="pokemon-list" className="pokemon-list">{printCards()}</section>;
 };
 
 export default PokemonList;

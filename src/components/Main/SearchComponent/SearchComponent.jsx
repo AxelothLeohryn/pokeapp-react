@@ -32,7 +32,6 @@ const SearchComponent = () => {
     } else {
       console.log("Invalid input: only letters and numbers are allowed."); //Change for popup later
     }
-
     event.target.search.value = ""; //Empty the search bar
   };
   const handleSearchInput = (event) => {
