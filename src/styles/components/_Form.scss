@@ -1,0 +1,57 @@
+@import "../utils/variables.scss";
+@import "../utils/mixins.scss";
+
+#create-title {
+  display: flex;
+  gap: 10px;
+  img {
+    width: 40px;
+  }
+}
+
+#create-form {
+  @include flex-column;
+  width: 90%;
+  max-width: 480px;
+  gap: 16px;
+  > input {
+    @include flex-column;
+    width: 90%;
+    height: 38px;
+    outline: none;
+    border: none;
+    // border-radius: 16px;
+    padding: 0px 16px;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5) inset;
+  }
+}
+#create-types {
+  @include flex-row;
+  width: 100%;
+  gap: 8px;
+  select {
+    width: 50%;
+    height: 38px;
+    outline: none;
+    border: none;
+    border-radius: 16px;
+    padding: 0px 16px;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5) inset;
+    background-color: gray;
+    color: white;
+    option {
+        @include flex-row;
+        img {
+            z-index: 20;
+        }
+    }
+  }
+}
+#create-submit {
+    max-width: 150px;
+    min-height: 60px;
+    border-radius: 50px;
+    background-color: rgb(72, 72, 72);
+    color: white;
+    font-weight: 800;
+}

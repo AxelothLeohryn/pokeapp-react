@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { PokemonContext } from "./context/pokemonContext";
 
+
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";

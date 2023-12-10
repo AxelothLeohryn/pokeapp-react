@@ -5,12 +5,25 @@ const Nav = () => {
   return (
     <>
       <nav>
-        <NavLink exact to="/" activeClassName="active">
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
           Home
         </NavLink>
 
-        <NavLink to="/search" activeClassName="active">
-          Search
+        <NavLink
+          to="/search"
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
+          PokeSearcher
+        </NavLink>
+
+        <NavLink
+          to="/newPokemon"
+          className={({ isActive }) => (isActive ? "active" : undefined)}
+        >
+          PokeLab
         </NavLink>
       </nav>
     </>
