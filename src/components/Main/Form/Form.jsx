@@ -84,6 +84,7 @@ const Form = () => {
           id="id"
           {...register("id", { required: true, min: 1293 })}
           type="number"
+          max={9999}
         />
 
         <input
@@ -91,6 +92,7 @@ const Form = () => {
           id="name"
           {...register("name", { required: true, minLength: 3 })}
           type="text"
+          maxLength={12}
         />
 
         <input
