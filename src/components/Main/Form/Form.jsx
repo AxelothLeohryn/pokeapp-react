@@ -10,8 +10,8 @@ const Form = () => {
 
   const onSubmit = (data) => {
     // Check if a Pokemon with the same ID already exists
-    const idAlreadyExists = pokemons.some(pokemon => pokemon.id === data.id);
-    
+    const idAlreadyExists = pokemons.some((pokemon) => pokemon.id === data.id);
+
     if (idAlreadyExists) {
       // If ID exists, show a toast error and do not add the new Pokemon
       toast.error(`A Pokemon with ID ${data.id} already exists.`);
@@ -33,12 +33,11 @@ const Form = () => {
           ...(data.typeTwo ? [{ type: { name: data.typeTwo } }] : []), // Corrected to spread into array if exists
         ],
       };
-  
+
       setPokemons([newPokemon, ...pokemons]);
       toast.success("Pokemon created successfully!");
     }
   };
-  
 
   const onError = (errors) => {
     if (errors.id) {
@@ -72,9 +71,12 @@ const Form = () => {
 
   return (
     <>
-      <div id="create-title">
-        <img id="create-title-icon" src="/icons/pokeball.svg" />
-        <h1>PokeLab</h1>
+      <div id="create-title-banner">
+        <div id="create-title">
+          <img id="create-title-icon" src="/icons/pokeball.svg" />
+          <h1>PokeLab</h1>
+        </div>
+        <h5>Create a new Pokemon.</h5>
       </div>
       <form id="create-form" onSubmit={handleSubmit(onSubmit, onError)}>
         <input

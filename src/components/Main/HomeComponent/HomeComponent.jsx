@@ -14,7 +14,7 @@ const HomeComponent = () => {
 
   return (
     <>
-      <h1 id="home-title">My Searched Pokemons</h1>
+      <h1 id="home-title">My Pokemons</h1>
       {pokemons.length > 0 ? (
         <section className="pokemon-list">{printCards()}</section>
       ) : (

@@ -1,11 +1,27 @@
 @import "../utils/variables.scss";
 @import "../utils/mixins.scss";
 
+#search-title-banner {
+  @include flex-column;
+  gap: 0px;
+  margin-bottom: 16px;
+  h5 {
+    margin: 6px;
+    color: rgb(92, 92, 92);
+    font-style: italic;
+  }
+}
+
 #search-title {
-    display: flex;
+    @include flex-row;
     gap: 10px;
+    margin-top: 16px;
     img {
         width: 40px;
+        height: 40px;
+    }
+    h1 {
+      margin: 0px;
     }
 }
 #search-form {
