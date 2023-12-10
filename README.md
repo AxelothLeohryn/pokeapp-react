@@ -1,6 +1,6 @@
 # PokeApp React
 
-[PokeApp](https://pokeapp-react-axeloth.netlify.app/) is a React application that interacts with the [PokeAPI](https://pokeapi.co/) to provide an interactive experience for Pokémon enthusiasts. This application utilizes React functional components and hooks like `useState()`, `useEffect()`, `useContext()`, and `useParams()` to manage state and side effects.
+[PokeApp](https://pokeapp-react-axeloth.netlify.app/) is a React application that interacts with the [PokeAPI](https://pokeapi.co/) to provide an interactive experience for Pokémon fans. This application utilizes React functional components and hooks like `useState()`, `useEffect()`, `useContext()`, and `useParams()` to manage state and side effects.
 
 ## Features
 
