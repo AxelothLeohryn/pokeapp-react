@@ -8,6 +8,7 @@
 - **Debounced Search**: Enhanced search experience with debounced input to optimize API calls.
 - **Pokémon Listing**: Dynamically generated list of Pokémon with detailed information.
 - **Dynamic Color Themes**:  According to the primary type of the pokemon.
+- **SASS** - For styling, mobile-first.
 - **Context API**: Utilizes `useContext` for efficient state management across components.
 - **Routing**: Clean and navigable UI with React Router.
 - **Form Handling**: Add new Pokémon using `react-hook-form`.
