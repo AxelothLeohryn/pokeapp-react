@@ -71,7 +71,7 @@ npm install npm@latest -g
    ```
 2. Navigate to the project directory:
    ```sh
-   cd PokeApp
+   cd pokeapp-react
    ```
 3. Install NPM packages:
    ```sh
