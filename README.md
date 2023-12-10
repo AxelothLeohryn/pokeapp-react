@@ -31,6 +31,7 @@
 - Detailed view for a specific pokemon.
 - The name, id, image and types are passed through query params (search/id?name=...)
 - The rest of the details (bio, stats) are fetched from the PokeAPI.
+- If no details are found (like when viewing your custom Pokemon), a *No details found* message appears.
 
 
 ![Details](./src/assets/gifs/details.gif)
